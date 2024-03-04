@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather App</title>
+    <script src="scripts/index.js" defer></script>
+    <link rel="stylesheet" href="styles/global.css" />
+  </head>
+  <body>
+   
+    <div class="container">
+      <div class="wrapper">
+        <div class="img_section">
+          <div class="default_info">
+            <h2 class="default_day"></h2>
+            <span class="default_date"></span>
+            <div class="loading-spinner"></div>
+            <div class="icons">
+              <img src="https://openweathermap.org/img/wn/10d@4x.png" alt="" />
+              <h2 class="weather_temp"></h2>
+              <h3 class="cloudtxt"></h3>
+            </div>
+          </div>
+        </div>
+        <div class="content_section">
+          <form>
+            <input
+              type="text"
+              placeholder="Search Location"
+              class="input_field"
+            />
+            <button type="submit" class="btn_search">Search</button>
+          </form>
+
+          <div class="day_info">
+            <div class="content">
+              <p class="title"></p>
+              <span class="value"></span>
+            </div>
+            <div class="content">
+              <p class="title"></p>
+              <span class="value"></span>
+            </div>
+            <div class="content">
+              <p class="title"></p>
+              <span class="value"></span>
+            </div>
+            <div class="content">
+              <p class="title"></p>
+              <span class="value"></span>
+            </div>
+          </div>
+          <div class="list_content">
+            <ul>
+              <li>
+                <span></span>
+                <span class="day_temp"></span>
+              </li>
+              <li>
+                <span></span>
+                <span class="day_temp"></span>
+              </li>
+              <li>
+                <span></span>
+                <span class="day_temp"></span>
+              </li>
+              <li>
+                <span></span>
+                <span class="day_temp"></span>
+              </li>
+                <span></span>
+                <span class="day_temp"></span>
+              </li>
+            </ul>
+          </div>
+          <ul class="favorites-list"></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
