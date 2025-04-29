@@ -215,3 +215,36 @@ body {
   transform: scale(1.2);
   color: #ff6347;
 }
+
+.unit-toggle-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #5c6bc0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.unit-toggle-btn:hover {
+  background-color: #3f51b5;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .img_section {
+    transform: scale(1) perspective(200px);
+  }
+
+  .content_section {
+    padding: 1rem;
+  }
+}
