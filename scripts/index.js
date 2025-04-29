@@ -141,9 +141,25 @@ function rightSideContent(result) {
 
 let favoriteCities = [];
 
+// Save favorites to localStorage
+function saveFavorites() {
+  localStorage.setItem("favoriteCities", JSON.stringify(favoriteCities));
+}
+
+// Load favorites from localStorage
+function loadFavorites() {
+  const storedFavorites = localStorage.getItem("favoriteCities");
+  if (storedFavorites) {
+    favoriteCities = JSON.parse(storedFavorites);
+    displayFavorites();
+  }
+}
+
+// Modify addToFavorites to save to localStorage
 function addToFavorites(cityName) {
   if (!favoriteCities.includes(cityName)) {
     favoriteCities.push(cityName);
+    saveFavorites();
     displayFavorites();
   }
 }
@@ -161,6 +177,31 @@ function displayFavorites() {
 }
 
 displayFavorites();
+
+// Add unit conversion toggle
+let isCelsius = true;
+
+function toggleUnit() {
+  isCelsius = !isCelsius;
+  const tempElements = document.querySelectorAll(".weather_temp, .day_temp");
+  tempElements.forEach((el) => {
+    const temp = parseFloat(el.textContent);
+    el.textContent = isCelsius
+      ? `${Math.round((temp - 32) * (5 / 9))}°C`
+      : `${Math.round(temp * (9 / 5) + 32)}°F`;
+  });
+}
+
+// Add event listener for unit toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const unitToggleBtn = document.createElement("button");
+  unitToggleBtn.textContent = "Toggle °C/°F";
+  unitToggleBtn.className = "unit-toggle-btn";
+  unitToggleBtn.addEventListener("click", toggleUnit);
+  document.body.appendChild(unitToggleBtn);
+
+  loadFavorites(); // Load favorites on page load
+});
 
 async function displayForeCast(lat, long) {
   const ForeCast_API = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${API}`;
